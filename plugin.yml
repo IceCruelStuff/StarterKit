@@ -1,6 +1,6 @@
 name: StarterKit
 main: TheNote\StarterKit\Main
 version: 2.0.0
-api: 3.9
+api: 1.12.0
 author: TheNote
 description: StarterKit by TheNote
