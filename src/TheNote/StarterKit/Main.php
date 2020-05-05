@@ -29,7 +29,15 @@ class Main extends PluginBase implements Listener
         if (!$player->hasPlayedBefore()) {
             if ($this->cfg->get("Inventory" === true)) {
                 foreach ($this->items as $item) {
-                    $player->getInventory()->setItem($item["slot"], ItemFactory::get($item["slot"]["Slot1"]["id"], $item["slot"]["Slot1"]["damage"], $item["slot"]["Slot1"]["count"])->setCustomName($item["slot"]["Slot1"][$this->cfg->getNestet("name")]), $item["slot"]->setLore(["Slot1"][$this->cfg->getNestet("lore")]));
+                    $player->getInventory()->setItem(
+                        $item["slot"],
+                        ItemFactory::get(
+                            $item["slot"]["Slot1"]["id"],
+                            $item["slot"]["Slot1"]["damage"],
+                            $item["slot"]["Slot1"]["count"]
+                        )->setCustomName($item["slot"]["Slot1"][$this->cfg->getNestet("name")]),
+                        $item["slot"]->setLore(["Slot1"][$this->cfg->getNestet("lore")])
+                    );
                 }
             }
             if ($this->items->get("Amor" === true)) {
