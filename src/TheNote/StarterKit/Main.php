@@ -9,23 +9,21 @@ use pocketmine\event\Listener;
 use pocketmine\item\Item;
 use pocketmine\utils\Config;
 
-class Main extends PluginBase implements Listener
-{
+class Main extends PluginBase implements Listener {
 
-    public function onEnable()
-    {
+    public function onEnable() {
         $this->saveResource("config.yml");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML);
         $this->items = (array)$cfg->get("Slots");
     }
 
-    public function onJoin(PlayerJoinEvent $event)
-    {
+    public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
         $ainv = $player->getArmorInventory();
 
         $this->cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML, array());
+
         if (!$player->hasPlayedBefore()) {
             if ($this->cfg->get("Inventory" === true)) {
                 foreach ($this->items as $item) {
@@ -40,6 +38,7 @@ class Main extends PluginBase implements Listener
                     );
                 }
             }
+
             if ($this->items->get("Amor" === true)) {
                 $ainv->setHelmet(Item::get($this->items["helm"]["id"])->setCustomName($this->items["helm"][$this->cfg->getNestet("name")])->setLore($this->items["helm"][$this->cfg->getNestet("lore")]));
                 $ainv->setChestplate(Item::get($this->items["chest"]["id"])->setCustomName($this->items["chest"][$this->cfg->getNestet("name")])->setLore($this->items["chest"][$this->cfg->getNestet("lore")]));
@@ -48,4 +47,5 @@ class Main extends PluginBase implements Listener
             }
         }
     }
+
 }
