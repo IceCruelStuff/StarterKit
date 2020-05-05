@@ -3,10 +3,18 @@ A StarterKit plugin where you can insert your starter items in the Config that a
 In the Config you can easily change the items yourself
 
 # Config
-Item0:
- -  id: 272 <- for the Items
- -  damage: 0 <- the damage Level
- -  count: 1 <- for the lot
+
+Welcome to StarterKit 2.0.0 by TheNote
+You Can now setup more Features!
+
+ * - slot: <- Set the Slot wo are the Item Place (0-35)
+ *   id: <- set the ItemID of the Item
+ *   damage: <- set the damage of the Item
+ *   count: <- set the amount of the Item
+ *   name: <- set a Customname for the Item
+ *   lore: <- set the Lore of the Item
+    
+# Other
 
 have fun with the plugin and make a issue for Proplems on GitHub
 Plugin mate by TheNote
